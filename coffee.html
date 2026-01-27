@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coffee Shop Login</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #fff;
+    }
+
+    .container {
+      text-align: center;
+      padding-top: 60px;
+    }
+
+    .logo {
+      width: 150px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+    }
+
+    h2 {
+      margin-top: 20px;
+      font-size: 2em;
+      color: #fff;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    .login-box {
+      background-color: rgba(0, 0, 0, 0.7);
+      display: inline-block;
+      padding: 30px;
+      border-radius: 12px;
+      margin-top: 30px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 250px;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #d2691e;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #a0522d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Logo -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/640px-A_small_cup_of_coffee.JPG" alt="Coffee Logo" class="logo">
+
+    <!-- Heading -->
+    <h2>Welcome to Coffee Time ☕</h2>
+
+    <!-- Login Form -->
+    <div class="login-box">
+      <form action="/login" method="post">
+        <div>
+          <input type="text" name="username" placeholder="Username" required>
+        </div>
+        <div>
+          <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <div>
+          <input type="submit" value="Login">
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
