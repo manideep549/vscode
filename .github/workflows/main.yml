@@ -1,79 +1,29 @@
-name: CI Pipeline
+name: Dev Branch CI
 
 on:
-  # Manual trigger from GitHub UI
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Environment to run against'
-        required: true
-        default: 'dev'
-        type: choice
-        options:
-          - dev
-          - uat
-
-  # Auto triggers
   push:
     branches:
-      - main
-      - uat
+      - dev
   pull_request:
     branches:
-      - main
+      - dev
       - uat
+      - main
 
 jobs:
   build-and-test:
-    name: Build & Test
     runs-on: ubuntu-latest
 
-    env:
-      NODE_VERSION: 18
-      APP_ENV: ${{ github.event.inputs.environment || 'dev' }}
-
     steps:
-      # 1️⃣ Checkout source code
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2️⃣ Setup Node.js (example runtime)
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      # 4️⃣ Lint check (sample quality gate)
-      - name: Run lint
+      - name: Run build
         run: |
-          echo "Running lint checks..."
-          npm run lint
+          echo "Running build..."
+          # add your build commands here
 
-      # 5️⃣ Unit tests
       - name: Run tests
         run: |
-          echo "Running unit tests..."
-          npm test
-
-      # 6️⃣ Build step
-      - name: Build project
-        run: |
-          echo "Building application..."
-          npm run build
-
-      # 7️⃣ Environment info (sample validation)
-      - name: Print environment details
-        run: |
-          echo "Branch        : ${{ github.ref_name }}"
-          echo "Environment   : $APP_ENV"
-          echo "Triggered by  : ${{ github.actor }}"
-
-      # 8️⃣ Conditional step (runs only for main)
-      - name: Main branch validation
-        if: github.ref == 'refs/heads/main'
-        run: |
-          echo "Extra checks for MAIN branch"
-
-      # 9️⃣ Success marker
-      - name: Success
-        run: echo "✅ CI pipeline completed successfully"
+          echo "Running tests..."
+          # add your test commands here
