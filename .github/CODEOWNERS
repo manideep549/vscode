@@ -1,0 +1,5 @@
+# Default: at least 1 reviewer for everything
+* @team-reviewer-1
+
+# If folder contains "profile", require 2 reviewers
+**/profile/** @team-reviewer-1 @team-reviewer-2
