@@ -1,0 +1,29 @@
+name: Dev Branch CI
+
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+    branches:
+      - dev
+      - uat
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run build
+        run: |
+          echo "Running build..."
+          # add your build commands here
+
+      - name: Run tests
+        run: |
+          echo "Running tests..."
+          # add your test commands here
