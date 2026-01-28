@@ -17,11 +17,11 @@ on:
   push:
     branches:
       - main
-      - develop
+      - uat
   pull_request:
     branches:
       - main
-      - develop
+      - uat
 
 jobs:
   build-and-test:
@@ -42,12 +42,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-
-      # 3️⃣ Install dependencies
-      - name: Install dependencies
-        run: |
-          echo "Installing dependencies..."
-          npm install
 
       # 4️⃣ Lint check (sample quality gate)
       - name: Run lint
